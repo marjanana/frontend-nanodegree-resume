@@ -171,9 +171,51 @@ function initializeMap() {
     });
 
     // hmmmm, I wonder what this is about...
-    google.maps.event.addListener(marker, 'click', function() {
+  google.maps.event.addListener(marker, 'click', function() {
+
       // your code goes here!
-    });
+
+  function initMap() {
+        var belgrade = {lat: 44.786568, lng: 20.4489216};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: belgrade
+        });
+
+        var contentString = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Belgrade</h1>'+
+            '<div id="bodyContent">'+
+            '<p><b>Belgrade</b>, is the capital of the southeast European country of Serbia.' +
+            'Its most significant landmark is Beogradska Tvrđava,'+
+            'an imposing fortress at the confluence of the Danube and the Sava rivers.'+
+            'A testament to the city’s strategic importance to the Roman,'+
+            'Byzantine, Ottoman, Serbian and Austrian empires, '+
+            'the fortress is now the site of several '+
+            'museums and Kalemegdan, a vast park. </p>'+
+
+             '<p>Attribution: Belgrade, <a href="https://en.wikipedia.org/wiki/Belgrade">'+
+            'https://en.wikipedia.org/wiki/Belgrade</a> '+
+            '(last visited October 17, 2015).</p>'+
+            '</div>'+
+            '</div>';
+
+        var infowindow = new google.maps.InfoWindow({
+          content: contentString
+        });
+
+  var marker = new google.maps.Marker({
+    position: belgrade,
+    map: map,
+    title: 'Belgrade'
+  });
+  marker.addListener('click', function() {
+    infowindow.open(map, marker);
+  });
+  }
+  initMap();
+  });
 
     // this is where the pin actually gets added to the map.
     // bounds.extend() takes in a map location object
