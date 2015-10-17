@@ -7,10 +7,10 @@ var bio = {
   "biopic": "images/ja2.jpg",
   "contacts":
   {
-  "mobile": "646 555 5555",
-  "email": "anamyers03@gmail.com",
-  "github": "marjanana",
-  "location": "NYC"
+    "mobile": "646 555 5555",
+    "email": "anamyers03@gmail.com",
+    "github": "marjanana",
+    "location": "NYC"
   },
   "skills": ["HTML", "CSS", "JavaScript", "Responsive Web Design"]
 };
@@ -33,20 +33,24 @@ bio.display = function() {
     $("#header").append(formattedImage);
 
     //skills
-    $("#header").append(HTMLskillsStart);
-    for(skill in bio.skills) {
-        var formattedSkill = HTMLskills.replace("%data%", bio.skills[skill]);
-         $("#skills").append(formattedSkill);
+    if(bio.skills.length > 0) {
+        $("#header").append(HTMLskillsStart);
+        var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
+        $("#skills").append(formattedSkill);
+        var formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
+        $("#skills").append(formattedSkill);
+         var formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
+        $("#skills").append(formattedSkill);
+          var formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
+        $("#skills").append(formattedSkill);
     }
 
     //contact
-    for (contact in bio.contacts) {
-        var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
-        var formattedGitHub = HTMLgithub.replace("%data%", bio.contacts.github);
-        var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
-        var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
-    }
-      $("#footerContacts").append(formattedMobile, formattedEmail, formattedLocation, formattedGitHub);
+    var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+    var formattedGitHub = HTMLgithub.replace("%data%", bio.contacts.github);
+    var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
+    var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+    $("#footerContacts").append(formattedMobile, formattedEmail, formattedLocation, formattedGitHub);
 };
 bio.display();
 
@@ -73,7 +77,7 @@ var work = {
   };
 
 work.display = function() {
-    for(job in work.jobs) {
+    for(var job in work.jobs) {
     $("#workExperience").append(HTMLworkStart);
 
         var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
@@ -90,6 +94,58 @@ work.display = function() {
 };
 work.display();
 
+
+var education = {
+  "schools" :
+  [
+  {
+    "name" : "City College of New York City",
+    "location" : "Harlem, NYC",
+    "degree" : "MA",
+    "majors" : "Art History/Museum Studies",
+    "dates" : "2009 - 2011",
+    "url" : "http://www.ccny.cuny.edu/arthistory/"
+  },
+  {
+   "name" : "Belgrade University. Faculty of Philosophy",
+    "location" : "Belgrade, Serbia",
+    "degree" : "BA",
+    "majors" : "Art History",
+    "dates" : " 1999 - 2005",
+    "url" : "http://www.bg.ac.rs/en/"
+  }
+  ],
+  "online courses" :
+  [
+  {
+    "title" : "Front-End Web Developer Nanodegree",
+    "school" : "udacity",
+    "dates" : "2015",
+    "url" : "https://www.udacity.com/course/nd001"
+  }
+  ]
+};
+
+education.display = function() {
+    for(school in education.schools) {
+      $("#education").append(HTMLschoolStart);
+
+      var formattedName = HTMLschoolName.replace("%data%",education.schools[school].name);
+      var formattedDegree = HTMLschoolDegree.replace("%data%",education.schools[school].degree);
+      $(".education-entry:last").append(formattedName + formattedDegree);
+
+      var formattedDates = HTMLschoolDates.replace("%data%",education.schools[school].dates);
+      $(".education-entry:last").append(formattedDates);
+
+      var formattedLocation = HTMLschoolLocation.replace("%data%",education.schools[school].location);
+      $(".education-entry:last").append(formattedLocation);
+
+      var formattedMajor = HTMLschoolMajor.replace("%data%",education.schools[school].majors);
+      $(".education-entry:last").append(formattedMajor);
+    }
+};
+education.display();
+
 var projects = {
   "projects":
   [
@@ -99,12 +155,6 @@ var projects = {
     "description": "Project 1 for Udacity Nanodegree.",
     "image": "images/p1.jpg"
     },
-    //{
-    // "title": "lorem",
-    // "dates":"2015-2015",
-    // "description": "Lorem ipsum.",
-    //"image": "images/p1.jpg"
-    //}
   ]
 };
 
