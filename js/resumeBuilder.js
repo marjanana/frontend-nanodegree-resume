@@ -54,25 +54,24 @@ bio.display = function() {
 };
 bio.display();
 
-
 var work = {
   "jobs":
   [
-  {
-    "employer": "CCNY",
-    "title": "Writing Tutor",
-    "location": "Harlem, NYC",
-    "description":["Lorem Ipsum dolor sit amet."],
-    "dates": "2014-2015"
-  },
+    {
+      "employer": "CCNY",
+      "title": "Writing Tutor",
+      "location": "Harlem, NYC",
+      "description":["Lorem Ipsum dolor sit amet."],
+      "dates": "2014-2015"
+    },
 
-  {
-    "employer": "CCNY Electronic Design and Multimedia",
-    "title": "Teaching Assistant",
-    "location": "Harlem, NYC",
-    "description":["Lorem Ipsum dolor sit amet."],
-    "dates": "2009-2015"
-  }
+    {
+      "employer": "CCNY Electronic Design and Multimedia",
+      "title": "Teaching Assistant",
+      "location": "Harlem, NYC",
+      "description":["Lorem Ipsum dolor sit amet."],
+      "dates": "2009-2015"
+    }
   ]
   };
 
@@ -94,35 +93,34 @@ work.display = function() {
 };
 work.display();
 
-
 var education = {
   "schools" :
   [
-  {
-    "name" : "City College of New York City",
-    "location" : "Harlem, NYC",
-    "degree" : "MA",
-    "majors" : "Art History/Museum Studies",
-    "dates" : "2009 - 2011",
-    "url" : "http://www.ccny.cuny.edu/arthistory/"
-  },
-  {
-   "name" : "Belgrade University. Faculty of Philosophy",
-    "location" : "Belgrade, Serbia",
-    "degree" : "BA",
-    "majors" : "Art History",
-    "dates" : " 1999 - 2005",
-    "url" : "http://www.bg.ac.rs/en/"
-  }
+    {
+      "name" : "City College of New York City",
+      "location" : "Harlem, NYC",
+      "degree" : "MA",
+      "majors" : "Art History/Museum Studies",
+      "dates" : "2009 - 2011",
+      "url" : "http://www.ccny.cuny.edu/arthistory/"
+    },
+    {
+     "name" : "Belgrade University. Faculty of Philosophy",
+      "location" : "Belgrade, Serbia",
+      "degree" : "BA",
+      "majors" : "Art History",
+      "dates" : " 1999 - 2005",
+      "url" : "http://www.bg.ac.rs/en/"
+    }
   ],
   "online courses" :
   [
-  {
-    "title" : "Front-End Web Developer Nanodegree",
-    "school" : "udacity",
-    "dates" : "2015",
-    "url" : "https://www.udacity.com/course/nd001"
-  }
+    {
+      "title" : "Front-End Web Developer Nanodegree",
+      "school" : "udacity",
+      "dates" : "2015",
+      "url" : "https://www.udacity.com/course/nd001"
+    }
   ]
 };
 
