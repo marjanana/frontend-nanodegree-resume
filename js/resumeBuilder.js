@@ -58,19 +58,19 @@ var work = {
   "jobs":
   [
     {
-      "employer": "CCNY",
-      "title": "Writing Tutor",
-      "location": "Harlem, NYC",
-      "description":["Lorem Ipsum dolor sit amet."],
-      "dates": "2014-2015"
+    "employer": "CCNY",
+    "title": "Writing Tutor",
+    "location": "Harlem, NYC",
+    "description":"Lorem Ipsum dolor sit amet.",
+    "dates": "2014-2015"
     },
 
     {
-      "employer": "CCNY Electronic Design and Multimedia",
-      "title": "Teaching Assistant",
-      "location": "Harlem, NYC",
-      "description":["Lorem Ipsum dolor sit amet."],
-      "dates": "2009-2015"
+    "employer": "CCNY Electronic Design and Multimedia",
+    "title": "Teaching Assistant",
+    "location": "Harlem, NYC",
+    "description":"Lorem Ipsum dolor sit amet.",
+    "dates": "2009-2015"
     }
   ]
   };
@@ -100,32 +100,32 @@ var education = {
       "name" : "City College of New York City",
       "location" : "Harlem, NYC",
       "degree" : "MA",
-      "majors" : "Art History/Museum Studies",
-      "dates" : "2009 - 2011",
+      "majors" : ["Art History/Museum Studies"],
+      "dates" : 2011,
       "url" : "http://www.ccny.cuny.edu/arthistory/"
     },
     {
      "name" : "Belgrade University. Faculty of Philosophy",
       "location" : "Belgrade, Serbia",
       "degree" : "BA",
-      "majors" : "Art History",
-      "dates" : " 1999 - 2005",
+      "majors" : ["Art History"],
+      "dates" : 2005,
       "url" : "http://www.bg.ac.rs/en/"
     }
   ],
-  "online courses" :
+  "onlineCourses" :
   [
     {
       "title" : "Front-End Web Developer Nanodegree",
-      "school" : "udacity",
-      "dates" : "2015",
+      "school" : "UDACITY",
+      "dates" : 2016,
       "url" : "https://www.udacity.com/course/nd001"
     }
   ]
 };
 
 education.display = function() {
-    for(school in education.schools) {
+    for(var school in education.schools) {
       $("#education").append(HTMLschoolStart);
 
       var formattedName = HTMLschoolName.replace("%data%",education.schools[school].name);
@@ -133,13 +133,30 @@ education.display = function() {
       $(".education-entry:last").append(formattedName + formattedDegree);
 
       var formattedDates = HTMLschoolDates.replace("%data%",education.schools[school].dates);
-      $(".education-entry:last").append(formattedDates);
+      $(".education").append(formattedDates);
 
       var formattedLocation = HTMLschoolLocation.replace("%data%",education.schools[school].location);
       $(".education-entry:last").append(formattedLocation);
 
       var formattedMajor = HTMLschoolMajor.replace("%data%",education.schools[school].majors);
       $(".education-entry:last").append(formattedMajor);
+    }
+
+$(".education-entry:last").append(HTMLonlineClasses);
+
+    for(var onedu in education.onlineCourses) {
+      var formattedOTitle = HTMLonlineTitle.replace("%data%",education.onlineCourses[onedu].title);
+      $(".education-entry:last").append(formattedOTitle);
+
+      var formattedOSchool = HTMLonlineSchool.replace("%data%",education.onlineCourses[onedu].school);
+      $(".education-entry:last").append(formattedOSchool);
+
+      var formattedODates = HTMLonlineDates.replace("%data%",education.onlineCourses[onedu].dates);
+      $(".education").append(formattedODates);
+
+      var formattedOUrl = HTMLonlineURL.replace("%data%",education.onlineCourses[onedu].url);
+      $(".education-entry:last").append(formattedOUrl);
+
     }
 };
 education.display();
@@ -151,7 +168,7 @@ var projects = {
     "title": "Portfolio",
     "dates":"2015",
     "description": "Project 1 for Udacity Nanodegree.",
-    "image": "images/p1.jpg"
+    "image": ["images/p1.jpg"]
     },
   ]
 };
