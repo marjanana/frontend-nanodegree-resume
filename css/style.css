@@ -66,6 +66,7 @@ h5 {
   color: #999;
   line-height: 16px;
   float: left;
+  padding: 0.1em 1em 0.1em 1em;
 }
 
 .location-text {
